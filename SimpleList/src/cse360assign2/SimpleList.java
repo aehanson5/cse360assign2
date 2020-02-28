@@ -43,45 +43,30 @@ public class SimpleList {
 	 *	@param x
 	 */
 	public void add(int x) {
-		if (count == list.length) {		//If the list is full			
-			//list[count] = x;			
-			int half = count / 2;		//Increase the size of the list		
+		if (count == list.length) {		//If the list is full					
+			int half = count / 2;		//Increase the size of the list	by half	
 			newLength(count + half);
-			//count ++; 					//Increment count
 		}
-		else if (count < 10) {			//If count is less than 10
-			for (int i = count - 1; i >= 0; i--) {
-				list[i+1] = list[i];	//Next position in list = index i
-			}
+		for(int i = count; i > 0; i--) {
+			list[i] = list[i - 1];
+		}
 			list[0] = x;				//Position 0 = x
 			count ++;					//Increment count
+			//System.out.println("Number Added: " + x);
 		}
-		
-		//Move other integers in the list over 
-		else {
-			list[count-1] = 0;			//Count location - 1 = 0
-			for (int i = count-1; i > 0; i--) {
-				list[i] = list[i-1];	//The next position = [i]
-			}
-			list[0] = x;				
-		}
-		//System.out.println("Number Added: " + x);
-	}
 	
 	/**
 	 * Change the length of the old array to the size of the new array.
-	 * @param length
+	 * @param length2
 	 */
-	public void newLength(int length) {
-		int arr[] = new int[length];
-		//Putting old elements into the new array
-		for(int i = 0; i < length && i < count; i++) {
+	public void newLength(int length2) {
+		int arr[] = new int[length2];
+		for(int i = 0; i < length2 && i < count; i++) {
 			arr[i] = list[i];
 		}
-		//Replacing old array completely with the new one
 		list = arr;
-		if(length < count) {
-			count = length;
+		if(length2 < count) {
+			count = length2;
 		}
 	}
 	
@@ -97,7 +82,8 @@ public class SimpleList {
 			for(int i = index; i < count-1; i++) {
 				list[i] = list[i+1];	//Shift the elements
 			}
-			this.count --;
+			//list[list.length - 1] = 0;
+			count --;
 			//System.out.println("Removed Number: " + x);
 		}
 		else {
@@ -164,7 +150,6 @@ public class SimpleList {
 			if (i != count-1) {
 				str += " ";
 			}
-			
 		}
 		//System.out.println(str);
 		return str;
@@ -174,7 +159,7 @@ public class SimpleList {
 	 * 	@return index
 	 */
 	public int count() {
-		//System.out.println(count);
+		//System.out.println("count: " + count);
 		return count;
 	}
 	
@@ -193,4 +178,6 @@ public class SimpleList {
 		//System.out.println("Index: " + index);
 		return index;	//Return -1 if x != i
 	}
+
+
 }
