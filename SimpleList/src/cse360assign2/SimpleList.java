@@ -18,6 +18,10 @@
 *		- First(): int Return the first element in the list. If there are no elements, return -1.
 *		- Last(:) int Return the last element in the list. If there are no elements, return -1.
 *		- Size(): int Return the current number of possible locations in the list.
+*		
+*		GitHub URL: https://github.com/aehanson5/cse360assign2.git
+*		GitHub username: aehanson5
+*		GitHub password: Ashley529153
 */
 package cse360assign2;
 
@@ -90,7 +94,7 @@ public class SimpleList {
 			//System.out.println("Number not found: " + x);
 		}
 		//Decrease the size of the list
-		int num = 3 * list.length / 4;
+		int num = (3 * (list.length / 4));
 		if (count < num) {
 			newLength(count);
 		}
@@ -178,6 +182,5 @@ public class SimpleList {
 		//System.out.println("Index: " + index);
 		return index;	//Return -1 if x != i
 	}
-
 
 }
