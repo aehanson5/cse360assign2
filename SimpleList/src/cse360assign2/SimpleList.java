@@ -86,7 +86,6 @@ public class SimpleList {
 			for(int i = index; i < count-1; i++) {
 				list[i] = list[i+1];	//Shift the elements
 			}
-			//list[list.length - 1] = 0;
 			count --;
 			//System.out.println("Removed Number: " + x);
 		}
